@@ -5,20 +5,25 @@ import {useState, useRef} from "react";
 
  export const PostIt = () => {
         const[notas, setNotas] = useState([
-            {id: uuid(),titulo: 'titulo 1', descripcion: 'descripcion 1', importante: true},
-            {id: uuid(),titulo: 'titulo 2', descripcion: 'descripcion 4', importante: true},
-            {id: uuid(),titulo: 'titulo 3', descripcion: 'descripcion 3', importante: true},
-            {id: uuid(),titulo: 'titulo 4', descripcion: 'descripcion 2', importante: true}
         ]);
     
         const tituloRef = useRef();
         const descripcionRef = useRef();
         const importanteRef = useRef();
+        
+        const [mensaje, setMensaje] = useState('')
     
         const agregarNota = () => {
             const titulo = tituloRef.current.value;
             const descripcion = descripcionRef.current.value;
             const importante = importanteRef.current.checked;
+            if (descripcion === ''){
+                setMensaje('Descripcion obligatoria.')
+                setTimeout(() =>{
+                    setMensaje('')
+                },2000)
+                return
+            }
     
             const nota = {
                 id: uuid(),
@@ -60,6 +65,9 @@ import {useState, useRef} from "react";
                     Importante
                 </label>
                 <button type='button' onClick={agregarNota}>Agregar</button>
+                <div>
+                    {mensaje}
+                </div>
             </div>
             <div className="notes-container">
                 {
