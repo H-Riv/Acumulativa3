@@ -1,13 +1,14 @@
-import React from 'react';
-
-const Note = () => {
+export const Notes = ({nota}) => {
+    const {id,titulo,descripcion,importante} = nota
+    if (importante){
     return (
         <div>
             <span className="close-btn">x</span>
-            <h2></h2>
-            <p></p>
+            <h2>{titulo}</h2>
+            <p>{descripcion}</p>
         </div>
     );
 };
+}
 
-export default Note;
+export default Notes;

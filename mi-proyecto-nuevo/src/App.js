@@ -1,12 +1,8 @@
-import React from 'react';
-import PostIt from './componentes/PostIt';
-import './componentes/styles.css';
+import {PostIt} from './componentes/PostIt';
 
-const App = () => {
+export const App = () => {
     return (
-        <div>
-            <PostIt />
-        </div>
+        <PostIt />
     );
 };
 
