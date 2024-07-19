@@ -54,16 +54,20 @@ h1 {
     gap: 20px;
 }
 
-.note {
+.no-important {
     background-color: #FFFFCC;
-    width: 200px;
+    width: 250px;
     padding: 10px;
     border-radius: 4px;
     position: relative;
 }
 
-.note.important-note {
+.important {
     background-color: #EC7063;
+    width: 250px;
+    padding: 10px;
+    border-radius: 4px;
+    position: relative;
 }
 
 .close-btn {
