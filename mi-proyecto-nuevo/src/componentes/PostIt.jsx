@@ -29,6 +29,13 @@ import {useState, useRef} from "react";
     
             const nuevasNotas = [...notas,nota];
             setNotas(nuevasNotas)
+            
+        }
+
+        const eliminarNota = (id) => {
+
+            const nuevasNotas = notas.filter((nota) => nota.id !== id);
+            setNotas(nuevasNotas)
         }
 
     return (
@@ -56,7 +63,7 @@ import {useState, useRef} from "react";
             </div>
             <div className="notes-container">
                 {
-                    notas.map((nota) => <Notes key={nota.id} nota={nota}/>)
+                    notas.map((nota) => <Notes key={nota.id} eliminarNota={eliminarNota} nota={nota}/>)
                 }
             </div>
         </div>

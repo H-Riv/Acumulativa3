@@ -1,9 +1,10 @@
-export const Notes = ({nota}) => {
+export const Notes = ({nota, eliminarNota}) => {
     const {id,titulo,descripcion,importante} = nota
+    const eliminacionNota = () => eliminarNota(id)
     if (importante){
         return (
             <div className="important">
-                <span className="close-btn">x</span>
+                <button onClick={eliminacionNota} className="close-btn">x</button>
                 <h2>{titulo}</h2>
                 <p>{descripcion}</p>
             </div>
@@ -12,7 +13,7 @@ export const Notes = ({nota}) => {
         else {
             return (
                 <div className="no-important">
-                    <span className="close-btn">x</span>
+                    <button onClick={eliminacionNota} className="close-btn">x</button>
                     <h2>{titulo}</h2>
                     <p>{descripcion}</p>
                 </div>
